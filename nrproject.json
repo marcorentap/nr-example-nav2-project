@@ -1,0 +1,21 @@
+{
+  "targets": {
+    "default": {
+      "setup": [
+        "test -d .venv || python3 -m venv --system-site-packages .venv",
+        "source .venv/bin/activate",
+        "pip install --upgrade pip",
+        "pip install -r requirements.txt"
+      ],
+      "build": [
+        "source .venv/bin/activate",
+        "python3 -m colcon build --symlink-install"
+      ],
+      "start": [
+        "source .venv/bin/activate",
+        "source install/setup.bash",
+        "exec ros2 launch py_nav2_example nav_to_pose.launch.py"
+      ]
+    }
+  }
+}
