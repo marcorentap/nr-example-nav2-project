@@ -1,0 +1,17 @@
+{
+  "name": "nr-example-nav2-project",
+  "build": {
+    "context": "..",
+    "dockerfile": "Dockerfile"
+  },
+  "remoteUser": "ubuntu",
+  "runArgs": [
+    "--network=host",
+    "--ipc=host"
+  ],
+  "containerEnv": {
+    "RMW_IMPLEMENTATION": "rmw_cyclonedds_cpp",
+    "ROS_DOMAIN_ID": "${localEnv:ROS_DOMAIN_ID:51}"
+  },
+  "postCreateCommand": "python3 -m venv --system-site-packages .venv && .venv/bin/pip install --upgrade pip && .venv/bin/pip install -r requirements.txt"
+}
