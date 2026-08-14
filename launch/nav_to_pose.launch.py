@@ -5,7 +5,7 @@ from launch_ros.actions import Node
 def generate_launch_description() -> LaunchDescription:
     return LaunchDescription([
         Node(
-            package='py_nav2_example',
+            package='nr_py_nav2',
             executable='nav_to_pose',
             name='nav_to_pose',
             output='screen',

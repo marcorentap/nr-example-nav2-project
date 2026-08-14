@@ -20,23 +20,25 @@ def main():
 
     navigator.goToPose(goal_pose)
 
+    logger = navigator.get_logger()
+
     i = 0
     while not navigator.isTaskComplete():
         i += 1
         feedback = navigator.getFeedback()
         if feedback and i % 5 == 0:
             eta = Duration.from_msg(feedback.estimated_time_remaining).nanoseconds / 1e9
-            print(f'Estimated time of arrival: {eta:.0f} seconds.', flush=True)
+            logger.info(f'Estimated time of arrival: {eta:.0f} seconds.')
 
     result = navigator.getResult()
     if result == TaskResult.SUCCEEDED:
-        print('Goal succeeded!', flush=True)
+        logger.info('Goal succeeded!')
     elif result == TaskResult.CANCELED:
-        print('Goal was canceled!', flush=True)
+        logger.warn('Goal was canceled!')
     elif result == TaskResult.FAILED:
-        print('Goal failed!', flush=True)
+        logger.error('Goal failed!')
     else:
-        print('Goal has an invalid return status!', flush=True)
+        logger.error('Goal has an invalid return status!')
 
     navigator.destroy_node()
     rclpy.shutdown()

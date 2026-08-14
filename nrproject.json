@@ -14,7 +14,7 @@
       "start": [
         "source .venv/bin/activate",
         "source install/setup.bash",
-        "exec ros2 launch py_nav2_example nav_to_pose.launch.py"
+        "exec ros2 launch nr_py_nav2 nav_to_pose.launch.py"
       ]
     }
   }

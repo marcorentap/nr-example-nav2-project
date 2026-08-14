@@ -1,6 +1,6 @@
-# py_nav2_example
+# nr_py_nav2
 
-Nav2 simple commander example: sends the robot to a goal pose and prints ETA
+Nav2 simple commander example: sends the robot to a goal pose and logs ETA
 until the task completes.
 
 Needs a running Nav2 stack (bringup or simulation) — the node blocks on
@@ -31,16 +31,16 @@ venv interpreter.
 ```bash
 source .venv/bin/activate
 source install/setup.bash
-ros2 launch py_nav2_example nav_to_pose.launch.py
+ros2 launch nr_py_nav2 nav_to_pose.launch.py
 ```
 
 Or the node directly:
 
 ```bash
-ros2 run py_nav2_example nav_to_pose
+ros2 run nr_py_nav2 nav_to_pose
 ```
 
 Ctrl-C to stop.
 
-The goal pose is hardcoded in `py_nav2_example/nav_to_pose.py`
+The goal pose is hardcoded in `nr_py_nav2/nav_to_pose.py`
 (`map` frame, x=0.0, y=0.0, yaw=0); no launch arguments.

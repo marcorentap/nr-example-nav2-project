@@ -2,7 +2,7 @@ from glob import glob
 
 from setuptools import find_packages, setup
 
-package_name = 'py_nav2_example'
+package_name = 'nr_py_nav2'
 
 setup(
     name=package_name,
@@ -21,7 +21,7 @@ setup(
     license='Apache-2.0',
     entry_points={
         'console_scripts': [
-            'nav_to_pose = py_nav2_example.nav_to_pose:main',
+            'nav_to_pose = nr_py_nav2.nav_to_pose:main',
         ],
     },
 )
